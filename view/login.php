@@ -1,6 +1,6 @@
 <?php
 
-      
+
 
 ?>
 
@@ -36,10 +36,12 @@
             <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
           </div>
           <div class="mb-3">
-            <button type="submit" class="btn btn-secundary w-40 btn-custom-border">Entrar</button>
-            <a href="#" class="float-end no-underline text-black">Esqueceu a senha?</a>
+              <button type="submit" class="btn btn-secundary w-100 btn-custom-border">Entrar</button>
+
+            
           </div>
-          <button type="submit" class="btn btn-secundary w-100 btn-custom-border ">Cadastrar</button>
+          <!-- <button type="submit" class="btn btn-secundary btn-custom-border "> <a class="no-underline text-black" href="./cadastroUser.php">NOVO por aqui???Crie sua conta agora mesmo clicando aqui</a></button> -->
+          <a href="./cadastroUser.php" class="float-start no-underline text-black">Criar conta</a> 
         </form>
       </div>
     </div>
