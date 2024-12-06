@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-black" aria-current="page" href="./cadastrarProdutos.php">Cadastrar Produtos</a>
+                        <a class="nav-link text-black" aria-current="page" href="./cadastrarProduto.php">Cadastrar Produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-black" href="./listarProdutos.php">Listar Produtos</a>
