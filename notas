@@ -4,3 +4,7 @@
 - ao clicar em salvar, ir para a tela de listar
 -interface de listar não segue o mesmo padrão de layout de cadastrar
 -exportar todo o banco de dados
+-importar a versão correta do bootstrap, acho que está faltando o javascript
+-como importar o bootstrap para todos os arquivos sem precisar importar em cada arquivo
+-fazer a interface de cadastro de usuario
+-Introdução a Sistemas de Bancos de Dados, C.J Date

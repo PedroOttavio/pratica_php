@@ -43,7 +43,7 @@
                         <li><a class="dropdown-item" href="#">Editar informações</a></li>
                         <li><a class="dropdown-item" href="#">Sair</a></li>
                     </ul>
-                </div>
+            </div>
 
                 
 

@@ -1,3 +1,8 @@
+<?php
+
+      
+
+?>
 
 
 <!DOCTYPE html>
@@ -34,7 +39,7 @@
             <button type="submit" class="btn btn-secundary w-40 btn-custom-border">Entrar</button>
             <a href="#" class="float-end no-underline text-black">Esqueceu a senha?</a>
           </div>
-            <button type="submit" class="btn btn-secundary w-100 btn-custom-border ">Cadastrar</button>
+          <button type="submit" class="btn btn-secundary w-100 btn-custom-border ">Cadastrar</button>
         </form>
       </div>
     </div>
@@ -43,4 +48,3 @@
 </body>
 
 </html>
-

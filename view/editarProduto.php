@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -36,6 +38,18 @@
                     </li>
                 </ul>
             </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Adalberto
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Editar informações</a></li>
+                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                </ul>
+            </div>
+
+
         </div>
     </nav>
 
@@ -114,7 +128,7 @@
                 <label for="valor" class="form-label">Preço</label>
                 <input type="number" class="form-control" id="valor" name="valor" step="0.01" value="<?php echo htmlspecialchars($produto['valor']); ?>" required>
             </div>
-            <button type="submit" class="btn btn-warning mt-3 fw-bold">Salvar</a></button>
+            <button type="submit" class="btn btn-warning mt-3 fw-bold"> <a class="no-underline" href="listarProdutos.php">Salvar</a></button>
             <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./listarProdutos.php'">Voltar</button>
         </form>
     </div>
