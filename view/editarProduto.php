@@ -8,8 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,7 +18,6 @@
 </head>
 
 <body>
-
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container-fluid">
@@ -48,8 +45,6 @@
                     <li><a class="dropdown-item" href="#">Sair</a></li>
                 </ul>
             </div>
-
-
         </div>
     </nav>
 
@@ -57,34 +52,14 @@
         <h2><strong>Editar Produto</strong></h2>
 
         <?php
-        // Dados de conexão com o banco de dados
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "redeforte";
+        require 'db.php';
 
-        // Conectando ao banco de dados
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Verificando a conexão
-        if ($conn->connect_error) {
-            die("<div class='alert alert-danger'>Conexão falhou: " . $conn->connect_error . "</div>");
-        }
-
-        // Verificando se o ID do produto foi passado
+        // testar se o id do produto foi passado, se der algum problema, ele apresenta uma mensagem na tela dependendo do erro.
         if (isset($_GET['id'])) {
             $id_produto = $_GET['id'];
+            $produto = getProdutoById($id_produto);
 
-            // Buscando o produto no banco de dados
-            $sql = "SELECT nome, descricao, valor FROM produtos WHERE id_produto = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("i", $id_produto);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                $produto = $result->fetch_assoc();
-            } else {
+            if (!$produto) {
                 echo "<div class='alert alert-danger'>Produto não encontrado.</div>";
                 exit;
             }
@@ -99,19 +74,14 @@
             $descricao = $_POST['descricao'] ?? '';
             $valor = $_POST['valor'] ?? 0;
 
-            $sql = "UPDATE produtos SET nome = ?, descricao = ?, valor = ? WHERE id_produto = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssdi", $nome, $descricao, $valor, $id_produto);
-
-            if ($stmt->execute()) {
+            if (updateProduto($id_produto, $nome, $descricao, $valor)) {
                 echo "<div class='alert alert-success'>Produto atualizado com sucesso!</div>";
+                header("Location: editarProduto.php?id=" . $id_produto);
+                exit();
             } else {
-                echo "<div class='alert alert-danger'>Erro ao atualizar produto: " . $stmt->error . "</div>";
+                echo "<div class='alert alert-danger'>Erro ao atualizar produto.</div>";
             }
         }
-
-        // Fechando a conexão
-        $conn->close();
         ?>
 
         <!-- Formulário de Edição -->
@@ -128,7 +98,7 @@
                 <label for="valor" class="form-label">Preço</label>
                 <input type="number" class="form-control" id="valor" name="valor" step="0.01" value="<?php echo htmlspecialchars($produto['valor']); ?>" required>
             </div>
-            <button type="submit" class="btn btn-warning mt-3 fw-bold"> <a class="no-underline" href="listarProdutos.php">Salvar</a></button>
+            <button type="submit" class="btn btn-warning mt-3 fw-bold">Salvar</button>
             <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./listarProdutos.php'">Voltar</button>
         </form>
     </div>
