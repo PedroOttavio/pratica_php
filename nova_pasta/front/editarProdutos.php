@@ -1,5 +1,5 @@
 <?php
-include '../control/controleProdutos.php';
+include '../parte-de-controle/controleProdutos.php';
 $codigo = $_GET["codigo"];
 $resultados = mostrarProdutosEditar($codigo);
 foreach ($resultados as $linha);
@@ -33,7 +33,7 @@ foreach ($resultados as $linha);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-black" aria-current="page" href="./cadastrarProduto.php">Cadastrar Produtos</a>
+                        <a class="nav-link text-black" aria-current="page" href="./cadastrarProduto">Cadastrar Produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-black" href="./listarProdutos.php">Listar Produtos</a>
@@ -55,7 +55,7 @@ foreach ($resultados as $linha);
     <div class="container mt-5">
         <h2><strong>Editar Produto</strong></h2>
 
-        <form method="post" action="../control/controleProdutos.php">
+        <form method="post" action="../parte-de-controle/controleProdutos.php">
             <div class="mb-3 col-md-9">
                 <label for="NomeProduto" class="form-label mt-4">Nome do Produto</label>
                 <input type="text" class="form-control" id="NomeProduto" name="NomeProduto" value="<?= htmlspecialchars($linha['NomeProduto']) ?>" required>
@@ -71,7 +71,7 @@ foreach ($resultados as $linha);
             <input type="hidden" name="codigo" value="<?= htmlspecialchars($linha['codigo']) ?>">
             <button type="submit" class="btn btn-warning mt-3 fw-bold" name="opcao" value="Alterar">Salvar</button>
             <button type="submit" class="btn btn-danger mt-3 fw-bold" name="opcao" value="Excluir">Excluir</button>
-            <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./mostrarProdutos.php'">Cancelar</button>
+            <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./MostrarProdutos.php'">Cancelar</button>
         </form>
     </div>
 
