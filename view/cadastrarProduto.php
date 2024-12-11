@@ -4,10 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema</title>
+    <title>Login de Usuário</title>
+
+    <!-- link do bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <!-- link de fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- bora birll -->
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -20,7 +25,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><strong>RedeForte</strong></a>
+            <a class="navbar-brand" href="./listarProdutos.php"><strong>RedeForte</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,17 +40,17 @@
                 </ul>
             </div>
             <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Adalberto
-                    </a>
+                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Adalberto
+                </a>
 
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Editar informações</a></li>
-                        <li><a class="dropdown-item" href="#">Sair</a></li>
-                    </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Editar informações</a></li>
+                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                </ul>
             </div>
 
-                
+
 
         </div>
     </nav>

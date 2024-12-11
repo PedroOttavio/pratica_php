@@ -80,7 +80,7 @@
                 echo "<td>" . $produto["nome"] . "</td>";
                 echo "<td>" . $produto["descricao"] . "</td>";
                 echo "<td>R$ " . number_format($produto["valor"], 2, ',', '.') . "</td>";
-                echo "<td><a href='editarProdutos.php?id=" . $produto["id_produto"] . "' class='btn btn-warning btn-sm fw-bold'>Editar</a></td>";
+                echo "<td><a href='editarProduto.php?id=" . $produto["id_produto"] . "' class='btn btn-warning btn-sm fw-bold'>Editar</a></td>";
                 echo "<td><a href='excluirProdutos.php?id=" . $produto["id_produto"] . "' class='btn btn-danger btn-sm fw-bold'>Excluir</a></td>";
                 echo "</tr>";
             }
