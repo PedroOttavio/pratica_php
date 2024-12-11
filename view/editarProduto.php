@@ -52,7 +52,7 @@
         <h2><strong>Editar Produto</strong></h2>
 
         <?php
-        require 'db.php';
+        require '../banco-de-dados.php';
 
         // testar se o id do produto foi passado, se der algum problema, ele apresenta uma mensagem na tela dependendo do erro.
         if (isset($_GET['id'])) {
