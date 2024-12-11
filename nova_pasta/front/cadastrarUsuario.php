@@ -2,69 +2,58 @@
 <html lang="pt-br">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>Página Cadastrar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Cadastrar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../estilo/estilo.css">
 </head>
 
 <body>
-	<div class="container">
-		<div class="d-flex justify-content-center h-100">
-			<div class="card">
-				<div class="card-header">
-					<h3>Cadastrar</h3>
-				</div>
-				<div class="card-body">
-					<form method="post" action="../control/controleUsuario.php">
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" class="form-control" placeholder="Nome Completo:" id="NomeUsuario"
-								name="NomeUsuario" required>
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" class="form-control" placeholder="Login:" id="LoginUsuario"
-								name="LoginUsuario" required>
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" class="form-control" placeholder="Senha:" id="SenhaUsuario"
-								name="SenhaUsuario" required>
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" class="form-control" placeholder="Confirmar Senha:"
-								id="ConfirmarSenhaUsuario" name="ConfirmarSenhaUsuario" required>
-						</div>
-						<div class="form-group">
-							<input type="submit" name="opcao" value="Cadastrar" class="btn float-right login_btn">
-						</div>
-					</form>
-				</div>
-				<div class="card-footer">
-					<div class="d-flex justify-content-center links">Já tem uma conta?<a href="paginaLogin.php">Faça
-							Login!</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 class="text-center mt-5 mb-5">Cadastrar</h2>
+        <form method="post" action="../parte-de-controle/controleUsuario.php">
+          <div class="mb-3">
+            <label for="NomeUsuario" class="form-label">Nome Completo</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="NomeUsuario" name="NomeUsuario" placeholder="Insira o nome Completo aqui" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="LoginUsuario" class="form-label">Login</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="LoginUsuario" name="LoginUsuario" placeholder="Insira o nome de usuário aqui" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="SenhaUsuario" class="form-label">Senha</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="SenhaUsuario" name="SenhaUsuario" placeholder="Insira uma senha" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="ConfirmarSenhaUsuario" class="form-label">Confirmar Senha</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="ConfirmarSenhaUsuario" name="ConfirmarSenhaUsuario" placeholder="Confirmar senha" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" name="opcao" value="Cadastrar" class="btn btn-secundary w-100 btn-custom-border">Cadastrar</button>
+          </div>
+          <div class="d-flex justify-content-center links">
+            Já tem uma conta? <a href="paginaLogin.php" class="no-underline text-black ms-2">Fazer login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
