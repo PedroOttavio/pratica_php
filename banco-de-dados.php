@@ -9,8 +9,8 @@ $dbname = "redeforte";
 
 
 // Função para buscar todos os produtos
-function getAllProdutos() {
-    $conn = getDbConnection();
+function pegarProdutos() {
+    $conn = conectarNoBanco();
     $sql = "SELECT id_produto, nome, descricao, valor FROM produtos";
     $result = $conn->query($sql);
     $produtos = [];
@@ -26,7 +26,7 @@ function getAllProdutos() {
 }
 
 // Função para conectar ao banco de dados
-function getDbConnection() {
+function conectarNoBanco() {
     global $servername, $username, $password, $dbname;
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -39,8 +39,8 @@ function getDbConnection() {
 }
 
 // buscar produto para depois usar nas outras funções
-function getProdutoById($id_produto) {
-    $conn = getDbConnection();
+function getProdutoPeloId($id_produto) {
+    $conn = conectarNoBanco();
     $sql = "SELECT nome, descricao, valor FROM produtos WHERE id_produto = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_produto);
@@ -53,8 +53,8 @@ function getProdutoById($id_produto) {
 }
 
 // atualizar produto
-function updateProduto($id_produto, $nome, $descricao, $valor) {
-    $conn = getDbConnection();
+function atualizarProduto($id_produto, $nome, $descricao, $valor) {
+    $conn = conectarNoBanco();
     $sql = "UPDATE produtos SET nome = ?, descricao = ?, valor = ? WHERE id_produto = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssdi", $nome, $descricao, $valor, $id_produto);
@@ -65,8 +65,8 @@ function updateProduto($id_produto, $nome, $descricao, $valor) {
 }
 
 // excluir produto
-function deleteProduto($id_produto) {
-    $conn = getDbConnection();
+function deletarProduto($id_produto) {
+    $conn = conectarNoBanco();
     $sql = "DELETE FROM produtos WHERE id_produto = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_produto);

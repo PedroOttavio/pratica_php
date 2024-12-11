@@ -17,6 +17,7 @@
 
 </head>
 
+
 <body>
 
     <nav class="navbar navbar-expand-lg bg-light shadow">
@@ -34,19 +35,15 @@
                         <a class="nav-link text-black" href="./listarProdutos.php">Listar Produtos</a>
                     </li>
                 </ul>
-                <!-- <button class="btn btn-outline-dark" type="submit">Sair</button> -->
                 <div class="dropdown">
                     <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Adalberto
                     </a>
-
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Editar informações</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Editar informações</a></li> -->
                         <li><a class="dropdown-item" href="#">Sair</a></li>
                     </ul>
                 </div>
-
-                
             </div>
         </div>
     </nav>
@@ -55,26 +52,14 @@
         <h2>Listar Produtos</h2>
 
         <?php
-        // Dados de conexão com o banco de dados
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "redeforte";
-
-        // Conectando ao banco de dados
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Verificando a conexão
-        if ($conn->connect_error) {
-            die("<div class='alert alert-danger'>Conexão falhou: " . $conn->connect_error . "</div>");
-        }
+        // Incluindo o arquivo de banco de dados
+        include 'banco-de-dados.php';
 
         // Buscando produtos no banco de dados
-        $sql = "SELECT id_produto, nome, descricao, valor FROM produtos";
-        $result = $conn->query($sql);
+        $produtos = pegarProdutos();
 
         // Verificando se há produtos cadastrados
-        if ($result->num_rows > 0) {
+        if (count($produtos) > 0) {
             echo "<table class='table table-striped'>";
             echo "<thead>
                 <tr>
@@ -89,14 +74,14 @@
             <tbody>";
 
             // Exibindo cada produto na tabela
-            while ($row = $result->fetch_assoc()) {
+            foreach ($produtos as $produto) {
                 echo "<tr>";
-                echo "<td>" . $row["id_produto"] . "</td>";
-                echo "<td>" . $row["nome"] . "</td>";
-                echo "<td>" . $row["descricao"] . "</td>";
-                echo "<td>R$ " . number_format($row["valor"], 2, ',', '.') . "</td>";
-                echo "<td><a href='editarProdutos.php?id=" . $row["id_produto"] . "' class='btn btn-warning btn-sm fw-bold'>Editar</a></td>";
-                echo "<td><a href='excluirProdutos.php?id=" . $row["id_produto"] . "' class='btn btn-danger btn-sm fw-bold'>Excluir</a></td>";
+                echo "<td>" . $produto["id_produto"] . "</td>";
+                echo "<td>" . $produto["nome"] . "</td>";
+                echo "<td>" . $produto["descricao"] . "</td>";
+                echo "<td>R$ " . number_format($produto["valor"], 2, ',', '.') . "</td>";
+                echo "<td><a href='editarProdutos.php?id=" . $produto["id_produto"] . "' class='btn btn-warning btn-sm fw-bold'>Editar</a></td>";
+                echo "<td><a href='excluirProdutos.php?id=" . $produto["id_produto"] . "' class='btn btn-danger btn-sm fw-bold'>Excluir</a></td>";
                 echo "</tr>";
             }
 
@@ -104,9 +89,6 @@
         } else {
             echo "<div class='alert alert-info'>Nenhum produto cadastrado.</div>";
         }
-
-        // Fechando a conexão
-        $conn->close();
         ?>
     </div>
 

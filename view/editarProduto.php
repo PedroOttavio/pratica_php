@@ -57,7 +57,7 @@
         // testar se o id do produto foi passado, se der algum problema, ele apresenta uma mensagem na tela dependendo do erro.
         if (isset($_GET['id'])) {
             $id_produto = $_GET['id'];
-            $produto = getProdutoById($id_produto);
+            $produto = getProdutoPeloId($id_produto);
 
             if (!$produto) {
                 echo "<div class='alert alert-danger'>Produto não encontrado.</div>";
@@ -74,7 +74,7 @@
             $descricao = $_POST['descricao'] ?? '';
             $valor = $_POST['valor'] ?? 0;
 
-            if (updateProduto($id_produto, $nome, $descricao, $valor)) {
+            if (atualizarProduto($id_produto, $nome, $descricao, $valor)) {
                 echo "<div class='alert alert-success'>Produto atualizado com sucesso!</div>";
                 header("Location: editarProduto.php?id=" . $id_produto);
                 exit();
