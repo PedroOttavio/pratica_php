@@ -30,7 +30,7 @@
                         <input type="text" id="cpf" name="cpf" class="form-control">
                     </div>
                     <button type="submit" name="opcao" value="cadastrar" class="btn btn-secundary w-100 btn-custom-border">Cadastrar</button>
-                    <a href="TelaLogin.php" class="float-start no-underline text-black mt-3">Já possui uma conta?</a>
+                    <a href="login.php" class="float-start no-underline text-black mt-3">Já possui uma conta?</a>
                 </form>
             </div>
         </div>
