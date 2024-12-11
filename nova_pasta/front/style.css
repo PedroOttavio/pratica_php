@@ -1,15 +1,4 @@
-/* Made with love by Mutiullah Samim*/
 
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,
-body {
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    font-family: 'Numans', sans-serif;
-}
 
 .container {
     height: 100%;
@@ -61,6 +50,26 @@ input:focus {
 .login_btn:hover {
     color: black;
     background-color: white;
+}
+
+.btn-custom-border {
+    border-color: black;
+}
+
+.no-underline {
+    text-decoration: none;
+  }
+
+.text-black {
+    color: black;
+}
+
+
+/* não funcionou, testar outra forma */
+input {
+    border: 1px solid black;
+    padding: 5px;
+    display: inline-block;
 }
 
 .links {
