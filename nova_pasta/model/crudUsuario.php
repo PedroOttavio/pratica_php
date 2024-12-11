@@ -1,5 +1,5 @@
 <?php
-include 'conexaoBD.php';
+include '../../conexaoBD.php';
 function cadastrarUsuario($NomeUsuario, $LoginUsuario, $SenhaUsuario)
 {
     connect();                /*query insere na tabela USUARIO, campos com o exato mesmo nome respectivamente da tabela*/

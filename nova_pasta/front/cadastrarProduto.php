@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["LoginUsuario"])) {
-    header("Location: paginaLogin.php");
+    header("Location: ../view/login.php");
     exit();
 }
 ?>
@@ -57,8 +57,8 @@ if (!isset($_SESSION["LoginUsuario"])) {
                 </div>
 
                 <div class="card-footer">
-                    <a href="MostrarProdutos.php" class="btn btn-primary">Mostrar Produtos</a>
-                    <form method="post" action="../control/controleUsuario.php" class="float-right">
+                    <a href="listarProdutos.php" class="btn btn-primary">Listar Produtos</a>
+                    <form method="post" action="../parte-de-controle/controleUsuario.php" class="float-right">
                         <input type="submit" name="opcao" value="Deslogar" class="btn btn-danger">
                     </form>
                 </div>

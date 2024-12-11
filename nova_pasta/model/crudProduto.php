@@ -1,28 +1,32 @@
 <?php
-include 'conexaoBD.php';
-function cadastrarProduto($NomeProduto, $ValorProduto, $DataProduto)
-{
-    connect();                /*query insere na tabela Produto, campos com o exato mesmo nome respectivamente da tabela*/
-    query("INSERT INTO produtos (NomeProduto,ValorProduto,Dataproduto) VALUES ('$NomeProduto','$$ValorProduto','$DataProduto')");
-    close();
-}
-function excluirProdutos($codigo)
+include '../../conexaoBD.php';
+
+function cadastrarProduto($nome, $valor, $descricao)
 {
     connect();
-    query("DELETE FROM produtos WHERE codigo=$codigo");
+    query("INSERT INTO produtos (nome, valor, descricao) VALUES ('$nome', '$valor', '$descricao')");
     close();
 }
-function alterarProdutos($codigo, $NomeProduto, $ValorProduto, $DataProduto)
+
+function excluirProdutos($id_produto)
+{
+    connect();
+    query("DELETE FROM produtos WHERE id_produto=$id_produto");
+    close();
+}
+
+function alterarProdutos($id_produto, $nome, $valor, $descricao)
 {
     connect();
     query("UPDATE produtos
     SET 
-    NomeProduto='$NomeProduto',
-    ValorProduto='$ValorProduto', 
-    DataProduto='$DataProduto' 
-    WHERE codigo='$codigo'");
+    nome='$nome',
+    valor='$valor', 
+    descricao='$descricao'
+    WHERE id_produto='$id_produto'");
     close();
 }
+
 function mostrarProdutos()
 {
     connect();
@@ -30,10 +34,12 @@ function mostrarProdutos()
     close();
     return $resultados;
 }
-function mostrarProdutosEditar($codigo)
+
+function mostrarProdutosEditar($id_produto)
 {
     connect();
-    $resultados = query("SELECT * FROM produtos Where codigo = $codigo");
+    $resultados = query("SELECT * FROM produtos WHERE id_produto = $id_produto");
     close();
     return $resultados;
 }
+?>

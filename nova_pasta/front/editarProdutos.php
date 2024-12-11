@@ -42,10 +42,9 @@ foreach ($resultados as $linha);
             </div>
             <div class="dropdown">
                 <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Adalberto
+                    Usuário
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Editar informações</a></li>
                     <li><a class="dropdown-item" href="#">Sair</a></li>
                 </ul>
             </div>
@@ -71,7 +70,7 @@ foreach ($resultados as $linha);
             <input type="hidden" name="codigo" value="<?= htmlspecialchars($linha['codigo']) ?>">
             <button type="submit" class="btn btn-warning mt-3 fw-bold" name="opcao" value="Alterar">Salvar</button>
             <button type="submit" class="btn btn-danger mt-3 fw-bold" name="opcao" value="Excluir">Excluir</button>
-            <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./MostrarProdutos.php'">Cancelar</button>
+            <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./listarProdutos.php'">Cancelar</button>
         </form>
     </div>
 
