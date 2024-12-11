@@ -18,7 +18,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-4">
-        <h2 class="text-center mt-5">Entrar</h2>
+        <h2 class="text-center mt-5 mb-5">Entrar</h2>
         <form method="post" action="../parte-de-controle/controleUsuario.php">
           <div class="mb-3">
             <label for="LoginUsuario" class="form-label">Login</label>
