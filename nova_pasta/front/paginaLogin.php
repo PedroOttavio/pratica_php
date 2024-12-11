@@ -23,13 +23,13 @@
           <div class="mb-3">
             <label for="LoginUsuario" class="form-label">Login</label>
             <div class="input-group">
-              <input type="text" class="form-control" id="LoginUsuario" name="LoginUsuario" placeholder="login" required>
+              <input type="text" class="form-control" id="LoginUsuario" name="LoginUsuario" placeholder="Nome de usuário" required>
             </div>
           </div>
           <div class="mb-3">
             <label for="SenhaUsuario" class="form-label">Senha</label>
             <div class="input-group">
-              <input type="password" class="form-control" id="SenhaUsuario" name="SenhaUsuario" placeholder="Digite sua senha" required>
+              <input type="password" class="form-control" id="SenhaUsuario" name="SenhaUsuario" placeholder="Senha" required>
             </div>
           </div>
           <div class="mb-3 form-check">
