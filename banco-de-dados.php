@@ -1,11 +1,7 @@
 <?php
 // db.php
 
-// Dados de conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "redeforte";
+include "./conexaoBD.php";
 
 
 // Função para buscar todos os produtos
@@ -23,17 +19,6 @@ function pegarProdutos() {
 
     $conn->close();
     return $produtos;
-}
-
-function cadastrarProduto($nome, $descricao, $valor) {
-    $conn = conectarNoBanco();
-    $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, valor) VALUES (?, ?, ?)");
-    $stmt->bind_param("ssd", $nome, $descricao, $valor);
-
-    $success = $stmt->execute();
-    $stmt->close();
-    $conn->close();
-    return $success;
 }
 
 // Função para conectar ao banco de dados
