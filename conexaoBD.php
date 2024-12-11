@@ -5,7 +5,7 @@ function connect(){
     $servidor='localhost'; 
     $nomeUsuario='root';
     $senhaUsuario='';
-    $base='mercado';
+    $base='redeforte';
     $conexao=mysqli_connect($servidor, $nomeUsuario,
     $senhaUsuario, $base) or die(mysqli_connect_error());
 
