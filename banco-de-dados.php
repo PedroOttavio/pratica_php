@@ -25,6 +25,17 @@ function pegarProdutos() {
     return $produtos;
 }
 
+function cadastrarProduto($nome, $descricao, $valor) {
+    $conn = conectarNoBanco();
+    $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, valor) VALUES (?, ?, ?)");
+    $stmt->bind_param("ssd", $nome, $descricao, $valor);
+
+    $success = $stmt->execute();
+    $stmt->close();
+    $conn->close();
+    return $success;
+}
+
 // Função para conectar ao banco de dados
 function conectarNoBanco() {
     global $servername, $username, $password, $dbname;

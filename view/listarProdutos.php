@@ -53,7 +53,7 @@
 
         <?php
         // Incluindo o arquivo de banco de dados
-        include 'banco-de-dados.php';
+        include '../banco-de-dados.php'; 
 
         // Buscando produtos no banco de dados
         $produtos = pegarProdutos();

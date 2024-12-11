@@ -36,76 +36,60 @@
                 </ul>
             </div>
             <div class="dropdown">
-                <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Adalberto
-                </a>
+                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Adalberto
+                    </a>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Editar informações</a></li>
-                    <li><a class="dropdown-item" href="#">Sair</a></li>
-                </ul>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Editar informações</a></li>
+                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                    </ul>
             </div>
+
+                
+
         </div>
     </nav>
 
     <div class="container mt-5">
-        <h2><strong>Editar Produto</strong></h2>
+        <h2>Cadastrar Produto</h2>
 
         <?php
-        require '../banco-de-dados.php';
-
-        // testar se o id do produto foi passado, se der algum problema, ele apresenta uma mensagem na tela dependendo do erro.
-        if (isset($_GET['id'])) {
-            $id_produto = $_GET['id'];
-            $produto = getProdutoPeloId($id_produto);
-
-            if (!$produto) {
-                echo "<div class='alert alert-danger'>Produto não encontrado.</div>";
-                exit;
-            }
-        } else {
-            echo "<div class='alert alert-danger'>ID do produto não fornecido.</div>";
-            exit;
-        }
-
-        // Atualizando o produto no banco de dados
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Incluindo o arquivo de banco de dados
+            include 'banco-de-dados.php';
+
+            // Recebendo dados do formulário
             $nome = $_POST['nome'] ?? '';
             $descricao = $_POST['descricao'] ?? '';
             $valor = $_POST['valor'] ?? 0;
 
-            if (atualizarProduto($id_produto, $nome, $descricao, $valor)) {
-                echo "<div class='alert alert-success'>Produto atualizado com sucesso!</div>";
-                header("Location: editarProduto.php?id=" . $id_produto);
-                exit();
+            // Cadastrando o produto no banco de dados
+            if (cadastrarProduto($nome, $descricao, $valor)) {
+                echo "<div class='alert alert-success'>Produto cadastrado com sucesso!</div>";
             } else {
-                echo "<div class='alert alert-danger'>Erro ao atualizar produto.</div>";
+                echo "<div class='alert alert-danger'>Erro ao cadastrar produto.</div>";
             }
         }
         ?>
 
-        <!-- Formulário de Edição -->
+        <!-- Formulário de Cadastro -->
         <form action="" method="POST">
             <div class="mb-3 col-md-9">
                 <label for="nome" class="form-label mt-4">Nome do Produto</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($produto['nome']); ?>" required>
+                <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
             <div class="mb-3 col-md-9">
                 <label for="descricao" class="form-label">Descrição</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="3" required><?php echo htmlspecialchars($produto['descricao']); ?></textarea>
+                <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
             </div>
             <div class="mb-3 col-md-9">
                 <label for="valor" class="form-label">Preço</label>
-                <input type="number" class="form-control" id="valor" name="valor" step="0.01" value="<?php echo htmlspecialchars($produto['valor']); ?>" required>
+                <input type="number" class="form-control" id="valor" name="valor" step="0.01" required>
             </div>
-            <button type="submit" class="btn btn-warning mt-3 fw-bold">Salvar</button>
-            <button type="button" class="btn btn-secondary mt-3 fw-bold" onclick="window.location.href='./listarProdutos.php'">Voltar</button>
+            <button type="submit" class="btn btn-warning mt-3 fw-bold">Cadastrar</button>
         </form>
     </div>
-
-    <!-- Bootstrap JS (opcional) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -1,11 +1,11 @@
 <?php
-require 'db.php';
+require '../banco-de-dados.php';
 
 if (isset($_GET['id'])) {
     $id_produto = $_GET['id'];
 
     // Excluindo o produto no banco de dados
-    if (deleteProduto($id_produto)) {
+    if (deletarProduto($id_produto)) {
         echo "<div class='alert alert-success'>Produto excluído com sucesso!</div>";
     } else {
         echo "<div class='alert alert-danger'>Erro ao excluir produto.</div>";
